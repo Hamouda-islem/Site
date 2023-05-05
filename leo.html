@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page de gestion de donneurs de sang</title>
+    <style>
+        body {
+            background: url(wave-haikei\ .png) no-repeat;
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+        
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            margin: 0;
+        }
+        
+        nav {
+            background-color: #666;
+            color: white;
+            padding: 10px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+        
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        h2 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        label {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        input,
+        select {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.2s ease;
+        }
+        
+        button:hover {
+            background-color: #666;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #333;
+            color: white;
+        }
+        
+        td:first-child {
+            font-weight: bold;
+        }
+        
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Gestion de la banque de sang</h1>
+    </header>
+
+    <main>
+        <script>
+            function confirmerModification() {
+                return confirm("Êtes-vous sûr de vouloir modifier ce donneur ?");
+            }
+        </script>
+        <h2>Supprimer un donneur</h2>
+        <form method="post" action="supp.php" onsubmit="return confirmerModification()";>
+            <label for="id">ID du donneur :</label>
+            <input type="text" name="id" id="id" required>
+
+            <button type="submit" name="supprimer">Supprimer le donneur</button>
+        </form>
+         
+        <h2>Liste des donneurs</h2>
+        <form method="post" action="affihcerbdd.php">
+            <button type="submit" name="afficher">Afficher les donneurs</button>
+        </form>
+
+
+        <h2>Rechercher un donneur par ID</h2>
+        <form method="post" action="recheD.php">
+            <label for="id">ID du donneur :</label>
+            <input type="text" id="id" name="id" required>
+
+            <button type="submit" name="submit">Rechercher</button>
+        </form>
+        <h2>Modifier un donneur</h2>
+        <form method="post" action="mod.php" onsubmit="return confirmerModification()";>
+
+            <label for="id">ID du donneur :</label>
+            <input type="text" name="id" id="id" required>
+
+            <label for="nom">Nom :</label>
+            <input type="text" name="nom" id="nom">
+
+            <label for="prenom">Prénom :</label>
+            <input type="text" name="prenom" id="prenom">
+
+            <label for="age">Age :</label>
+            <input type="text" name="age" id="age">
+
+            <label for="telephone">Téléphone :</label>
+            <input type="text" name="telephone" id="telephone">
+
+            <label for="groupe">Groupe sanguin :</label>
+            <select id="groupe" name="groupe" required>
+                <option value="">Choisir un groupe sanguin</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+            </select>
+
+            <label for="date">Date d'ajout :</label>
+            <input type="date" id="date" name="date">
+
+            <label for="centre">Centre de don :</label>
+            <input type="text" name="centre" id="centre">
+
+            <button type="submit" name="modifier" >Modifier le donneur</button>
+
+        </form>
+
+        <h2>Activation d'inscriptions d'un donneur</h2>
+        <form method="post" action="etat.php">
+            <label for="id">ID du donneur :</label>
+            <input type="text" id="id" name="id" required>
+
+            <label for="etat">Etat :</label>
+            <select name="etat" id="etat">
+                <option value="Accepter">Accepter</option>
+                <option value="Refuser">Refuser</option>
+            </select>
+
+            <button type="submit" name="choix">Valider</button>
+        </form>
+        <h2>Affichier Qauntite </h2>
+        <form method="post" action="quan.php">
+            <button type="submit">afficher</button>
+        </form>
+
+        <h2>Passage de RDV d'un donneur</h2>
+        <form method="POST" action="etatrdv.php" >
+            <label for="id_rdv">ID du donneur :</label>
+            <input type="text" id="id_rdv" name="id_rdv" required>
+
+            <label for="etat">Etat :</label>
+            <select name="etatrdv" id="etatrdv">
+                <option value="Oui">Oui</option>
+
+            </select>
+            <button type="submit" name="choixrdv">Valider</button>
+        </form>
+
+        <h2>Imprimer la carte de donneur</h2>
+        <form method="post" action="imp.php">
+            <label>ID du donneur :</label>
+            <input type="text" name="id">
+            <button type="submit">ok</button>
+        </form>
+
+
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        DONVITAL
+    </title>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+
+    <header>
+
+        <img src="./image/logo.png" alt="logo" id="logo">
+
+        <nav class="navigation">
+
+            <a class="nav-link" href="#">Home</a>
+
+            <a class="nav-link" href="#">About</a>
+
+            <a class="nav-link" href="#">Services</a>
+
+            <a class="nav-link" href="#">Contact</a>
+            <button class="btnlogin-popup">Login</button>
+
+        </nav>
+
+    </header>
+    <div class="wrapper">
+        <span class="icon-close"><ion-icon name="close-outline"></ion-icon></span>
+        <div class="form-box login">
+            <h2> Connectez-vous</h2>
+            <form action="esdonneur.php" method="post">
+                <div class="input-box">
+
+                    <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                    <input type="email" id="email" name="email" required>
+                    <label>Email</label>
+                </div>
+            
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <input type="password" id="password" name="password"required>
+                    <label>password</label>
+                </div>
+                <div class="rmember-forgot">
+                    <label><input type="checkbox">Souviens-toi de moi</label>
+                    <a href="envoyer_code.php">Mot de passe oublie ?</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="login-register">
+                    <p>Vous n'avez pas de compte ?
+                        <a href="#" class="register-link">S'inscrire</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+
+        <div class="form-box register">
+            <h2>inscription</h2>
+            <form method="post" action="doka.php">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" name="nom" id="nom" required>
+                    <label>Nom </label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" name="prenom" id="prenom" required>
+                    <label>Prenom</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="calendar"></ion-icon></span>
+                    <input type="number" name="age" id="age" min="18" max="100" required>
+                    <label>Age</label>
+                </div>
+                
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="call"></ion-icon></span>
+                    <input type="tel" name="telephone" id="telephone" required>
+                    <label>Numero de telephone</label>
+                </div>
+
+
+
+                <div class="input-boxa">
+                    <span class="icon"><ion-icon name="medkit"></ion-icon></span>
+                    <label>Groupe sanguin :</label>
+                    <select id="groupe" name="groupe" required>
+                  <option value="">Groupe </option>
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB-">AB-</option>
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+                </select>
+                </div>
+                <div class="input-boxaa">
+                    <span class="icon"><ion-icon name="medkit"></ion-icon></span>
+                    <label>Le Centre :</label>
+                    <select id="centre" name="centre" required>
+                        <option value="">Choisir Le Centre</option>
+                        <option value="Centre 1014">DSP SETIF 1014</option>
+                        <option value="Centre lhchama">CHU SETIF lhchama</option>
+                        <option value="Centre Bizzare">CHU SETIF Bizzare</option>
+                        <option value="Centre kaaboub">CHU SETIF kaaboub</option>
+                        <option value="Centre saadna abdenour">CHU SETIF Saadna Abdenour</option>
+                        <option value="AIN_KBIRA">EPH AIN EL KEBIRA</option>
+                        <option value="EL_EULMA">EPH EL EULMA</option>
+                        <option value="BENI_OURTHILANE">EPH BENI OURTILANE</option>
+                        <option value="AIN_OULMENE">EPH AIN OULMENE</option>
+                        <option value="RAS_EL_MA">EHS RAS EL MA</option>
+                        <option value="AIN_ABESSA">EPSP AIN ABESSA</option>
+                        <option value="AIN_AZEL">EPSP AIN AZEL</option>
+                        <option value="BENI_AZIZ">EPSP BENI AZIZ</option>
+                    </select>
+                    <br>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                    <input type="email" name="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                <label for="date"></label>
+                <input type="date" id="date" name="date"><br>
+                <label>Derniere donation :</label>
+            </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <input type="password" name="password" required>
+                    <label>Mot de passe</label>
+                </div>
+                <div class="rmember-forgot">
+                    <label><input type="checkbox" required>Je suis d'accord avec les termes et conditions</label>
+                </div>
+                <button type="submit" class="btn" name="ajouter">S'inscrire</button>
+                <div class="login-register">
+                    <p>Déjà inscrit ?
+                        <a href="#" class="login-link">Connectez-vous</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="scrip.js"></script>
+</body>
+</html>
